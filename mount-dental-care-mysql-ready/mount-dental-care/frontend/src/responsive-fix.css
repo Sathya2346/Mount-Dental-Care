@@ -1,0 +1,665 @@
+/* ============================================================
+   MASTER RESPONSIVE OVERRIDE
+   ============================================================ */
+
+/* ---------- BOOK APPOINTMENT BUTTON ---------- */
+/* Desktop: show in header-actions, hide in nav */
+.header-book-btn {
+  display: inline-flex !important;
+}
+.nav-book-btn {
+  display: none !important;
+}
+
+/* Tablet & Mobile: show in nav dropdown, hide in header-actions */
+@media (max-width: 980px) {
+  .header-book-btn {
+    display: none !important;
+  }
+  .nav-book-btn {
+    display: inline-flex !important;
+    margin-top: 12px !important;
+    width: auto !important;
+  }
+}
+
+/* ---------- NAVBAR VERTICAL ALIGNMENT ---------- */
+.header {
+  align-items: center !important;
+}
+.nav {
+  align-items: center !important;
+}
+
+/* ---------- EMERGENCY BAR — ALL DEVICES ---------- */
+.emergency-bar {
+  height: auto !important;
+  min-height: 31px !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  overflow: visible !important;
+}
+.emergency-bar > div {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+.emergency-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  white-space: normal !important;
+  flex-shrink: 1 !important;
+}
+/* Separator between the branch phone numbers (the hours group has no divider
+   of its own any more - see below). */
+.topbar-sep,
+.emergency-bar > div > span.topbar-sep {
+  margin: 0 6px !important;
+}
+/* No divider line between the phone numbers and the opening hours. The two
+   groups are held apart by the bar's own column gap instead, so a wrapped
+   line can never start with a stray "|". */
+.topbar-hours {
+  white-space: normal !important;
+  padding-left: 0 !important;
+  border-left: 0 !important;
+}
+.topbar-link {
+  white-space: nowrap !important;
+}
+
+@media (max-width: 700px) {
+  .emergency-bar {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 5px 10px !important;
+    flex-wrap: wrap !important;
+    /* Phones left, hours right - same two-sided layout as on desktop. */
+    justify-content: space-between !important;
+    font-size: 9px !important;
+    overflow: visible !important;
+    z-index: 201 !important;
+  }
+  .emergency-bar > div {
+    justify-content: flex-start !important;
+    gap: 6px !important;
+  }
+  .emergency-right {
+    display: flex !important;
+    white-space: normal !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+  }
+  .topbar-hours {
+    white-space: normal !important;
+    padding-left: 0 !important;
+  }
+}
+
+/* ---------- HEADER / NAV — TABLET ---------- */
+@media (max-width: 980px) {
+  .mobile-menu {
+    display: block !important;
+  }
+  .nav {
+    display: none !important;
+    position: absolute !important;
+    top: 61px !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: #fff !important;
+    padding: 14px 20px !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,.06) !important;
+    z-index: 210 !important;
+  }
+  .nav.open {
+    display: flex !important;
+  }
+  .nav a {
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #f0f4f8 !important;
+    font-size: 13px !important;
+  }
+  .nav a:last-of-type {
+    border-bottom: none !important;
+  }
+  .header {
+    gap: 15px !important;
+  }
+  .brand {
+    width: auto !important;
+    flex: 1 !important;
+  }
+}
+
+/* ---------- HEADER / NAV — MOBILE ---------- */
+@media (max-width: 700px) {
+  .header {
+    position: sticky !important;
+    top: 0 !important;
+    height: 56px !important;
+    padding: 0 14px !important;
+    gap: 8px !important;
+    z-index: 200 !important;
+  }
+  .brand {
+    flex: 1 !important;
+    width: auto !important;
+  }
+  .brand img {
+    max-width: 110px !important;
+    max-height: 46px !important;
+  }
+  .nav {
+    padding: 12px 16px !important;
+  }
+  .nav a {
+    font-size: 12px !important;
+    padding: 9px 0 !important;
+  }
+}
+
+/* ---------- CARD GRIDS — TABLET ---------- */
+@media (max-width: 980px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .review-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .mission-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .credential-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ---------- CARD GRIDS — MOBILE ---------- */
+@media (max-width: 700px) {
+  .service-grid,
+  .trust-grid,
+  .gallery-grid,
+  .review-grid,
+  .mission-grid,
+  .credential-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .service-card,
+  .trust-card,
+  .review-card {
+    min-height: auto !important;
+  }
+  .gallery-card {
+    height: 210px !important;
+  }
+}
+
+/* ---------- HERO — TABLET ---------- */
+@media (max-width: 980px) {
+  /* The top bar + header are one `position: sticky` stack (see the STICKY
+     HEADER STACK block in styles.css), so they already take their own
+     space in the flow. Reserving another 92px here opened a blank strip
+     between the navbar and the banner on tablets. */
+  .hero {
+    margin-top: 0 !important;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .hero-visual {
+    order: 2 !important;
+  }
+  .hero-photo {
+    width: 78% !important;
+    height: auto !important;
+  }
+  .hero-metrics {
+    margin-top: 0 !important;
+  }
+}
+
+/* ---------- HERO — MOBILE ---------- */
+@media (max-width: 700px) {
+  .hero {
+    margin-top: 0 !important;
+    min-height: auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .hero h1 {
+    font-size: 32px !important;
+    line-height: 1 !important;
+  }
+  .hero-copy {
+    padding: 0 16px !important;
+  }
+  .hero-copy p {
+    font-size: 13px !important;
+  }
+  .hero-photo {
+    width: 100% !important;
+    height: 200px !important;
+  }
+  .hero-buttons {
+    flex-wrap: wrap !important;
+  }
+  .hero-metrics {
+    grid-template-columns: 1fr 1fr !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* ---------- FLOATING SOCIAL ICONS ---------- */
+.floating-social {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+.floating-social a,
+.floating-social button {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  flex: 0 0 44px !important;
+}
+
+@media (max-width: 700px) {
+  .floating-social {
+    right: 12px !important;
+    bottom: 16px !important;
+    gap: 8px !important;
+  }
+  .floating-social a,
+  .floating-social button {
+    width: 42px !important;
+    height: 42px !important;
+    flex: 0 0 42px !important;
+  }
+}
+
+/* ---------- AWARDS — ALL DEVICES ---------- */
+/* The image box used to be a fixed-height strip (250px, 220px on small
+   screens): on a wide card the photo was cropped down to a thin band and on
+   a phone it was squeezed even further, so the award photos never looked
+   right. Sizing the box from the card width with `aspect-ratio` keeps the
+   same shape on every device, and `object-fit: cover` fills that box
+   edge-to-edge so no navy letterboxing shows through around the photo. */
+.award-image-wrap {
+  height: auto !important;
+  aspect-ratio: 16 / 10 !important;
+  max-height: none !important;
+}
+.award-image-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+@media (max-width: 700px) {
+  .award-image-wrap {
+    aspect-ratio: 16 / 11 !important;
+  }
+}
+
+/* ---------- SECTION LAYOUTS — TABLET ---------- */
+@media (max-width: 980px) {
+  .section {
+    padding: 72px 32px !important;
+  }
+  .why,
+  .about,
+  .contact,
+  .appointment {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  .about-team {
+    max-width: 650px !important;
+    margin: 0 auto !important;
+  }
+  .lead-doctor {
+    grid-template-columns: 280px 1fr !important;
+    padding: 28px !important;
+  }
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 28px !important;
+  }
+}
+
+/* ---------- SECTION LAYOUTS — MOBILE ---------- */
+@media (max-width: 700px) {
+  .section {
+    padding: 50px 16px !important;
+  }
+  .section-heading h2 {
+    font-size: 24px !important;
+  }
+  .why,
+  .about,
+  .contact,
+  .appointment {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .about-team {
+    padding: 0 !important;
+  }
+  .lead-doctor {
+    grid-template-columns: 1fr !important;
+    padding: 18px !important;
+    gap: 24px !important;
+  }
+  .lead-photo {
+    height: 280px !important;
+  }
+  .appointment {
+    padding: 36px 16px !important;
+  }
+  .appointment-copy h2 {
+    font-size: 28px !important;
+  }
+  .booking-card {
+    padding: 20px 16px !important;
+  }
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .contact {
+    padding: 50px 16px !important;
+  }
+  .map-frame {
+    height: 250px !important;
+  }
+  .footer {
+    padding: 32px 16px !important;
+  }
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .footer-bottom {
+    display: block !important;
+  }
+  .footer-bottom > div {
+    margin-top: 12px !important;
+    flex-wrap: wrap !important;
+    gap: 14px !important;
+  }
+}
+
+/* ---------- OFFER BAR — MOBILE ---------- */
+@media (max-width: 700px) {
+  .offer {
+    padding: 20px 16px !important;
+    display: block !important;
+  }
+  .offer h2 {
+    font-size: 20px !important;
+  }
+  .offer-btn {
+    margin-top: 12px !important;
+  }
+}
+
+/* ---------- SMALL MOBILE ---------- */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 26px !important;
+  }
+  .section-heading h2 {
+    font-size: 21px !important;
+  }
+  .emergency-bar {
+    font-size: 8px !important;
+    padding: 3px 8px !important;
+  }
+  .nav a {
+    font-size: 12px !important;
+  }
+}
+
+/* ---------- VERY SMALL MOBILE ---------- */
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 22px !important;
+  }
+  .emergency-bar {
+    font-size: 7.5px !important;
+  }
+}
+
+/* ============================================================
+   CLIENT UPDATES
+   Doctor layout, About order and the footer clinic-hours contacts.
+   ============================================================ */
+
+/* ---------- DOCTOR SECTION — CONTENT LEFT, PHOTO RIGHT ---------- */
+.lead-doctor {
+  grid-template-columns: minmax(0, 1fr) 33% !important;
+  align-items: center !important;
+}
+.lead-copy {
+  order: 1 !important;
+}
+.lead-photo {
+  order: 2 !important;
+}
+
+/* ---------- ABOUT SECTION ----------
+   The clinic story is its own section above the doctor's section now, so the
+   gap that used to separate it from the doctor cards below is dropped. */
+.about-full-copy .about-copy-full {
+  margin-bottom: 0 !important;
+}
+
+/* ---------- FOOTER CLINIC HOURS ----------
+   Each branch stays on one line — "St. Thomas Mount - 044-2234 5000" — and that
+   line never wraps on any device: the row uses the full width of the hours
+   column, the text is nowrap, and the font scales down so the number always
+   fits instead of breaking. */
+.footer .hours-contact-row {
+  grid-column: 1 / -1 !important;
+}
+.footer .hours-branch {
+  display: block !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  font-size: clamp(10px, 0.85vw + 2.6px, 13.5px) !important;
+}
+
+/* On desktop the CLINIC HOURS column is the widest of the four footer
+   columns, which is what keeps the contact lines on a single row. */
+@media (min-width: 981px) {
+  .footer-top {
+    grid-template-columns: 2.1fr 0.95fr 1.05fr 1.75fr !important;
+  }
+}
+
+/* ---------- DOCTOR SECTION — TABLET ---------- */
+@media (max-width: 980px) {
+  .lead-doctor {
+    grid-template-columns: minmax(0, 1fr) 280px !important;
+  }
+  /* The footer drops to one or two columns here, so the branch lines have
+     room to use their normal size again. */
+  .footer .hours-branch {
+    font-size: 12.5px !important;
+  }
+}
+
+/* ---------- DOCTOR SECTION — MOBILE ----------
+   One column: the photo keeps the lead position it already had on phones. */
+@media (max-width: 700px) {
+  .lead-doctor {
+    grid-template-columns: 1fr !important;
+  }
+  .lead-copy {
+    order: 2 !important;
+  }
+  .lead-photo {
+    order: 1 !important;
+  }
+}
+
+/* ============================================================
+   OUR DENTISTS CAROUSEL
+   Every doctor is shown in the full "lead dentist" card format.
+   Cards alternate: one has the content on the left with the photo
+   on the right, the next mirrors it, and so on, as a carousel.
+   ============================================================ */
+.experts-carousel {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.experts-viewport {
+  overflow: hidden;
+  border-radius: 20px;
+}
+.experts-track {
+  display: flex;
+  align-items: stretch;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.experts-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  padding: 4px;
+}
+.experts-slide .lead-doctor {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto !important;
+}
+
+/* Mirrored card: photo on the left, content on the right. */
+.lead-doctor.lead-doctor-reverse {
+  grid-template-columns: 33% minmax(0, 1fr) !important;
+}
+.lead-doctor.lead-doctor-reverse .lead-photo {
+  order: 1 !important;
+}
+.lead-doctor.lead-doctor-reverse .lead-copy {
+  order: 2 !important;
+}
+
+.experts-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 24px;
+}
+.experts-nav > button {
+  background: #fff;
+  border: 1px solid #d1dce9;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #078fd0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 10px rgba(12, 35, 70, 0.08);
+  transition: background 0.18s, border-color 0.18s, transform 0.18s;
+}
+.experts-nav > button:hover {
+  background: #edf8ff;
+  border-color: #078fd0;
+  transform: translateY(-1px);
+}
+.experts-dots {
+  display: flex;
+  gap: 8px;
+}
+.experts-dots button {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background: #c8d8e8;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.experts-dots button.active {
+  background: #078fd0;
+  transform: scale(1.3);
+}
+@media (max-width: 980px) {
+  .lead-doctor.lead-doctor-reverse {
+    grid-template-columns: 280px minmax(0, 1fr) !important;
+  }
+}
+@media (max-width: 700px) {
+  .lead-doctor.lead-doctor-reverse {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ---------- BOOKING FORM — FIELD ICONS ----------
+   The input stretches to fill the row, so pin the leading icon (the user/phone
+   /mail icons) to its intrinsic size. Without this the flex item can be
+   squeezed away and the icon disappears. */
+.field > div > svg {
+  flex: 0 0 auto !important;
+}
+
+/* ---------- BOOKING FORM — PREFERRED DATE PICKER ----------
+   The calendar icon opens the native date picker. The visible text input keeps
+   showing/submitting dd/mm/yyyy; a hidden date input (anchored over the icon
+   so the popup opens in the right place) is what the picker actually drives. */
+.date-field {
+  position: relative;
+}
+.date-field .date-icon-btn {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  line-height: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 0.15s;
+}
+.date-field .date-icon-btn:hover,
+.date-field .date-icon-btn:focus-visible {
+  color: #078fd0;
+  outline: none;
+}
+.date-field .date-icon-btn svg {
+  display: block;
+  flex: 0 0 auto;
+}
+.date-field .date-picker-input {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
